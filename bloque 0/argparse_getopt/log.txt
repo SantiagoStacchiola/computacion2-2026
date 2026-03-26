@@ -1,0 +1,6 @@
+Info: inicio del sistema
+Error de conexión
+Usuario logueado
+error de timeout
+DEBUG modo activo
+ERROR crítico
