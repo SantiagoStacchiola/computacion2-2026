@@ -1,0 +1,41 @@
+with open("datos.txt", "r") as f:
+    contenido = f.read()
+# Acá el archivo ya está cerrado, pase lo que pase
+
+#decorador 
+from contextlib import contextmanager
+import tempfile
+import shutil
+
+@contextmanager
+def directorio_temporal():
+    """Crea un directorio temporal y lo borra al terminar."""
+    path = tempfile.mkdtemp()
+    try:
+        yield path  # Acá se ejecuta el bloque with
+    finally:
+        shutil.rmtree(path)
+
+# Uso
+with directorio_temporal() as tmp:
+    # Trabajar con tmp...
+    # Guardar archivos temporales...
+    pass
+# El directorio y todo su contenido ya no existen
+
+
+#las funciones son objetivos
+def saludar(nombre):
+    return f"Hola, {nombre}"
+
+# Una función es solo un valor
+mi_funcion = saludar
+print(mi_funcion("Ana"))  # "Hola, Ana"
+
+# Podés pasarla como argumento
+def ejecutar_dos_veces(funcion, argumento):
+    funcion(argumento)
+    funcion(argumento)
+
+ejecutar_dos_veces(print, "hola")  # imprime "hola" dos veces
+
