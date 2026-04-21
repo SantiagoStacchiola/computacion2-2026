@@ -1,0 +1,23 @@
+total 36
+drwxrwxrwx 1 santi santi 4096 Apr 21 12:05 .
+drwxrwxrwx 1 santi santi 4096 Apr 21 11:00 ..
+-rwxrwxrwx 1 santi santi 1376 Apr 21 11:14 comunicación_bidireccional.py
+-rwxrwxrwx 1 santi santi  944 Apr 21 11:36 conectando_dos_comandos.py
+-rwxrwxrwx 1 santi santi  526 Apr 21 12:00 escritor_fifo.py
+-rwxrwxrwx 1 santi santi  976 Apr 21 11:01 explorar_fds.py
+-rwxrwxrwx 1 santi santi  267 Apr 21 12:00 lector_fifo.py
+-rwxrwxrwx 1 santi santi 1027 Apr 21 11:51 listado.txt
+-rwxrwxrwx 1 santi santi  141 Apr 21 11:52 mayusculas.py
+-rwxrwxrwx 1 santi santi  673 Apr 21 12:07 mi_tee.py
+-rwxrwxrwx 1 santi santi 2272 Apr 21 11:45 mini-shell_con_redirección.py
+-rwxrwxrwx 1 santi santi 1145 Apr 21 11:11 pipe_padre_hijo.py
+-rwxrwxrwx 1 santi santi 1693 Apr 21 11:39 pipeline_de_tres_comandos.py
+-rwxrwxrwx 1 santi santi  773 Apr 21 11:58 procesamiento_con_subprocess.py
+-rwxrwxrwx 1 santi santi  644 Apr 21 11:05 redirección_de_stdout.py
+-rwxrwxrwx 1 santi santi  395 Apr 21 11:08 separar_salidas.py
+-rwxrwxrwx 1 santi santi   67 Apr 21 11:58 solo_stderr.txt
+-rwxrwxrwx 1 santi santi   73 Apr 21 11:09 solo_stdout.txt
+-rwxrwxrwx 1 santi santi   68 Apr 21 11:10 stderr.txt
+-rwxrwxrwx 1 santi santi   73 Apr 21 11:10 stdout.txt
+-rwxrwxrwx 1 santi santi   13 Apr 21 11:50 test.txt
+-rwxrwxrwx 1 santi santi  141 Apr 21 11:10 todo.txt
