@@ -9,14 +9,16 @@
 
 ## Estructura
 
-- `bloque_0/` - Ejercicios del bloque autónomo
-- `clase_1_Docker/` - Ejercicios resueltos
-- `clase_2_Docker_aplicado/` - Ejercicios resueltos
-- `clase_3_procesos/` - Ejercicios resueltos
-- `clase_4_pipes/` - Ejercicios resueltos
-- `clase_5_señales/` - Ejercicios resueltos
-- `clase_6_mmap/` - Ejercicios resueltos
-- `clase_7_multiprocessings/` - Ejercicios resueltos
+- `bloque_0_autonomo/` - Ejercicios del bloque autónomo
+- `clase_01_docker_intro/` - Ejercicios resueltos
+- `clase_02_docker_aplicado/` - Ejercicios resueltos
+- `clase_03_procesos/` - Ejercicios resueltos
+- `clase_04_pipes/` - Ejercicios resueltos
+- `clase_05_señales/` - Ejercicios resueltos
+- `clase_06_mmap_memoria_compartida/` - Ejercicios resueltos
+- `clase_07_multiprocessing_fundamentos/` - Ejercicios resueltos
+- `clase_08_multiprocessing_avanzado/` - Ejercicios resueltos
+- `clase_09_threading/` - Ejercicios resueltos
 - `tp1/` - Trabajo Práctico 1
 - `tp2/` - Trabajo Práctico 2
 
@@ -32,5 +34,7 @@
 | Clase 5    | Listo  |
 | Clase 6    | Listo  |
 | Clase 7    | Listo  |
+| Clase 8    | Listo  |
+| Clase 9    | Listo  |
 | TP1        | Pendiente |
 | TP2        | Pendiente |
