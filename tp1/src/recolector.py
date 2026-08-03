@@ -26,7 +26,7 @@ def recolectar():
                 "status": leer_status(pid),
                 "cmdline": leer_cmdline(pid),
             }
-        except (FileNotFoundError, ProcessLookupError, ValueError):
-            pass
+        except (OSError, ValueError):
+            continue
 
     return snapshot

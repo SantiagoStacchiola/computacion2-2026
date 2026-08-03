@@ -1,0 +1,3 @@
+# En el proyecto no se requieren dependencias externas.
+# Utiliza exclusivamente la biblioteca estándar de Python 3.11+.
+# Los tests también usan unittest y unittest.mock, incluidos en Python.

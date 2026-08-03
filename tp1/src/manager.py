@@ -1,93 +1,70 @@
 # src/manager.py
 
-from multiprocessing import Manager, Value
 import time
+from multiprocessing import Manager
+from queue import Empty
 
 
-def crear_manager_compartido():
-    """
-    Crea el Manager dict compartido con estructura inicial.
-    Cada vista tiene: data, timestamp, intervalo de refresco.
-    """
+DEFAULT_INTERVALS = {
+    "resumen": 2.0,
+    "memoria": 3.0,
+    "fds": 5.0,
+    "threads": 2.0,
+    "senales": 10.0,
+    "scheduling": 10.0,
+    "sistema": 2.0,
+}
+
+
+VISTAS = tuple(DEFAULT_INTERVALS)
+
+
+def crear_manager_compartido(config=None):
+    """Crea el snapshot global compartido mediante multiprocessing.Manager."""
+    config = config or {}
     manager = Manager()
-    
     snapshot = manager.dict()
-    
-    # Inicializar slots para cada analizador
-    snapshot["resumen"] = manager.dict({
-        "data": [],
-        "ts": time.time(),
-        "intervalo": 2.0,
-    })
-    
-    snapshot["memoria"] = manager.dict({
-        "data": [],
-        "ts": time.time(),
-        "intervalo": 3.0,
-    })
-    
-    snapshot["fds"] = manager.dict({
-        "data": [],
-        "ts": time.time(),
-        "intervalo": 5.0,
-    })
-    
-    snapshot["threads"] = manager.dict({
-        "data": [],
-        "ts": time.time(),
-        "intervalo": 2.0,
-    })
-    
-    snapshot["senales"] = manager.dict({
-        "data": [],
-        "ts": time.time(),
-        "intervalo": 10.0,
-    })
-    
-    snapshot["scheduling"] = manager.dict({
-        "data": [],
-        "ts": time.time(),
-        "intervalo": 10.0,
-    })
-    
-    snapshot["sistema"] = manager.dict({
-        "data": [],
-        "ts": time.time(),
-        "intervalo": 2.0,
-    })
-    
-    # Estado global
+
+    for nombre_vista in VISTAS:
+        dato_inicial = {} if nombre_vista == "sistema" else []
+        snapshot[nombre_vista] = manager.dict({
+            "data": dato_inicial,
+            "ts": 0.0,
+            "version": 0,
+        })
+
     snapshot["estado_global"] = manager.dict({
-        "vista_activa": "resumen",  # 1-7
-        "filtro_comando": "",
-        "filtro_usuario": "",
-        "ordenar_por": "cpu_percent",  # o "rss_bytes", "pid"
+        "vista_activa": config.get("default_view", "resumen"),
+        "filtro_comando": config.get("filters", {}).get("comando", ""),
+        "filtro_usuario": config.get("filters", {}).get("usuario", ""),
+        "ordenar_por": config.get("ordering", "cpu_percent"),
         "pid_pinned": None,
-        "verbose": False,
+        "verbose": bool(config.get("verbose", False)),
         "running": True,
+        "redibujar": True,
+        "ultimo_evento": "",
+        "config_version": 0,
     })
-    
-    return snapshot
+
+    # Se devuelve también el Manager para conservar una referencia explícita
+    # durante toda la ejecución del programa.
+    return manager, snapshot
 
 
-def actualizar_vista(snapshot, nombre_vista, data, intervalo=None):
-    """
-    Actualiza atomicamente una vista en el snapshot.
-    """
+def actualizar_vista(snapshot, nombre_vista, data, timestamp=None):
+    """Actualiza una vista completa y aumenta su versión."""
     vista = snapshot[nombre_vista]
     vista["data"] = data
-    vista["ts"] = time.time()
-    if intervalo is not None:
-        vista["intervalo"] = intervalo
-    snapshot[nombre_vista] = vista
+    vista["ts"] = timestamp if timestamp is not None else time.time()
+    vista["version"] = int(vista.get("version", 0)) + 1
 
 
-def obtener_vista(snapshot, nombre_vista):
-    """
-    Obtiene una vista del snapshot de forma segura.
-    """
-    return {
-        "data": list(snapshot[nombre_vista]["data"]),
-        "ts": snapshot[nombre_vista]["ts"],
-        "intervalo": snapshot[nombre_vista]["intervalo"],
-    }
+def ciclo_agregador(snapshot, cola_resultados):
+    """Único proceso que escribe resultados de analizadores en el snapshot."""
+    while snapshot["estado_global"].get("running", True):
+        try:
+            nombre_vista, data, timestamp = cola_resultados.get(timeout=0.5)
+        except Empty:
+            continue
+
+        actualizar_vista(snapshot, nombre_vista, data, timestamp)

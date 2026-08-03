@@ -1,0 +1,18 @@
+{
+  "default_view": "resumen",
+  "verbose": false,
+  "intervals": {
+    "resumen": 2.0,
+    "memoria": 3.0,
+    "fds": 5.0,
+    "threads": 2.0,
+    "senales": 10.0,
+    "scheduling": 10.0,
+    "sistema": 2.0
+  },
+  "filters": {
+    "comando": "",
+    "usuario": ""
+  },
+  "ordering": "cpu_percent"
+}

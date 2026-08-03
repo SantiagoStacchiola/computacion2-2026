@@ -1,72 +1,64 @@
 # src/analizadores/memoria.py
 
-from procfs import leer_maps, extraer_memoria_de_status
+from procfs import extraer_memoria_de_status, leer_maps
 
 
 def contar_page_faults(stat):
-    """
-    Extrae faults menores y mayores desde /proc/[pid]/stat.
-    """
     return {
         "minor_faults": int(stat.get("minflt", 0)),
+        "children_minor_faults": int(stat.get("cminflt", 0)),
         "major_faults": int(stat.get("majflt", 0)),
+        "children_major_faults": int(stat.get("cmajflt", 0)),
     }
 
 
+def clasificar_segmento(mapeo):
+    path = mapeo["path"] or "[anon]"
+    permisos = mapeo["permisos"]
+
+    if "[heap]" in path:
+        return "heap"
+    if "[stack" in path:
+        return "stack"
+    if "s" in permisos:
+        return "shared"
+    if "x" in permisos:
+        return "text"
+    if "w" in permisos:
+        return "data"
+    return "other"
+
+
 def construir_memoria(snapshot, snapshot_anterior=None):
-    procesos_memoria = []
+    procesos = []
 
     for pid, datos in snapshot["procesos"].items():
         stat = datos["stat"]
-        status = datos["status"]
-
-        memoria = extraer_memoria_de_status(status)
-        faults = contar_page_faults(stat)
         mapeos = leer_maps(pid)
+        agrupados = {}
 
-        segmentos_agrupados = {}
         for mapeo in mapeos:
-            path = mapeo["path"] or "[anon]"
+            tipo = clasificar_segmento(mapeo)
+            grupo = agrupados.setdefault(tipo, {
+                "tamano": 0,
+                "permisos": set(),
+                "count": 0,
+            })
+            grupo["tamano"] += mapeo["tamano"]
+            grupo["permisos"].add(mapeo["permisos"])
+            grupo["count"] += 1
 
-            if "[heap]" in path:
-                tipo = "heap"
-            elif "[stack" in path:
-                tipo = "stack"
-            elif "[vdso]" in path:
-                tipo = "vdso"
-            elif "[vsyscall]" in path:
-                tipo = "vsyscall"
-            elif path.startswith("/"):
-                tipo = "file"
-            else:
-                tipo = "other"
+        for grupo in agrupados.values():
+            grupo["permisos"] = sorted(grupo["permisos"])
 
-            if tipo not in segmentos_agrupados:
-                segmentos_agrupados[tipo] = {
-                    "tamano": 0,
-                    "permisos": set(),
-                    "count": 0,
-                }
-
-            segmentos_agrupados[tipo]["tamano"] += mapeo["tamano"]
-            segmentos_agrupados[tipo]["permisos"].add(mapeo["permisos"])
-            segmentos_agrupados[tipo]["count"] += 1
-
-        for tipo in segmentos_agrupados:
-            segmentos_agrupados[tipo]["permisos"] = list(
-                segmentos_agrupados[tipo]["permisos"]
-            )
-
-        proceso_memoria = {
+        procesos.append({
             "pid": pid,
             "nombre": stat["comm"],
-            "memoria_campos": memoria,
-            "faults": faults,
-            "segmentos_agrupados": segmentos_agrupados,
+            "memoria_campos": extraer_memoria_de_status(datos["status"]),
+            "faults": contar_page_faults(stat),
+            "segmentos_agrupados": agrupados,
             "total_mapeos": len(mapeos),
-        }
+        })
 
-        procesos_memoria.append(proceso_memoria)
-
-    procesos_memoria.sort(key=lambda p: p["pid"])
-    return procesos_memoria
+    procesos.sort(key=lambda proceso: proceso["pid"])
+    return procesos

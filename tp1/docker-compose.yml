@@ -1,0 +1,17 @@
+services:
+  tp1:
+    build: .
+    container_name: tp1-monitor
+
+    stdin_open: true
+    tty: true
+    init: true
+
+    environment:
+      TERM: xterm-256color
+      PYTHONUNBUFFERED: "1"
+
+    command: ["python3", "-u", "src/main.py"]
+
+    stop_signal: SIGTERM
+    stop_grace_period: 10s
