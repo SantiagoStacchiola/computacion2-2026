@@ -15,3 +15,4 @@ services:
 
     stop_signal: SIGTERM
     stop_grace_period: 10s
+    pid: "host"

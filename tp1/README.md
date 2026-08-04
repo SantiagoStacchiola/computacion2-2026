@@ -327,4 +327,4 @@ El trabajo permitió relacionar los conceptos de procesos, threads, scheduling, 
 
 También permitió comprobar las diferencias entre comunicación por mensajes y memoria compartida, y la importancia de sincronizar accesos, manejar procesos que desaparecen durante una lectura y mantener los handlers de señales lo más simples posible.
 
-Alumno: [Santi Stacchiola]Legajo: [64270]
+Alumno: [Santiago Stacchiola]Legajo: [64270]
