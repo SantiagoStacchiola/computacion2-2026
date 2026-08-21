@@ -21,7 +21,13 @@
 - `clase_10_threading/` - Ejercicios resueltos
 - `clase_11_sincronizacion/` - Ejercicios resueltos
 - `clase_12_redes_fundamentos/` - Ejercicios resueltos
-- `clase_13_/` - Ejercicios resueltos
+- `clase_13_sockets_tcp/` - Ejercicios resueltos
+- `clase_14_servidores_concurrentes/` - Ejercicios resueltos
+- `clase_15_/` - Ejercicios resueltos
+- `clase_16_/` - Ejercicios resueltos
+- `clase_17_/` - Ejercicios resueltos
+- `clase_18_/` - Ejercicios resueltos
+- `clase_19_/` - Ejercicios resueltos
 - `tp1/` - Trabajo Práctico 1
 - `tp2/` - Trabajo Práctico 2
 
@@ -42,5 +48,11 @@
 | Clase 11   | Listo  |
 | Clase 12   | Listo  |
 | Clase 13   | Listo  |
+| Clase 14   | Listo  |
+| Clase 15   | Listo  |
+| Clase 16   | Listo  |
+| Clase 17   | Listo  |
+| Clase 18   | Listo  |
+| Clase 19   | Listo  |
 | TP1        | Listo  |
 | TP2        | Pendiente |
