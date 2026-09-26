@@ -26,8 +26,8 @@
 - `clase_15_/` - Ejercicios resueltos
 - `clase_16_/` - Ejercicios resueltos
 - `clase_17_/` - Ejercicios resueltos
-- `clase_18_/` - Ejercicios resueltos
-- `clase_19_/` - Ejercicios resueltos
+- `clase_18_/` - Ejercicios pendientes
+- `clase_19_/` - Ejercicios pendientes
 - `tp1/` - Trabajo Práctico 1
 - `tp2/` - Trabajo Práctico 2
 
@@ -52,7 +52,7 @@
 | Clase 15   | Listo  |
 | Clase 16   | Listo  |
 | Clase 17   | Listo  |
-| Clase 18   | Listo  |
-| Clase 19   | Listo  |
+| Clase 18   | Pendiente |
+| Clase 19   | Pendiente |
 | TP1        | Listo  |
 | TP2        | Pendiente |

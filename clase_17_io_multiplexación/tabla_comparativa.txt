@@ -1,0 +1,11 @@
+ conexiones     select       poll      epoll
+---------------------------------------------
+        100      14.4       7.0       1.6
+        500      94.8      40.2       1.4
+       1000 falla (ValueError)     101.2       1.4
+       2000 falla (ValueError)     332.8       1.4
+       5000 falla (ValueError)    2116.4       1.4
+
+conclusion:
+
+El benchmark permite observar la diferencia entre `select()`, `poll()` y `epoll()` a medida que aumenta la cantidad de conexiones. `select()` presenta además una limitación relacionada con el valor de los descriptores, mientras que `poll()` elimina ese límite pero mantiene un comportamiento O(n), ya que debe recorrer el conjunto completo de descriptores. `epoll()`, en cambio, mantiene el conjunto de descriptores registrado en el kernel y devuelve únicamente aquellos que presentan eventos, por lo que su costo se relaciona con la cantidad de eventos listos. Esta diferencia resulta especialmente importante cuando existe una gran cantidad de conexiones simultáneas pero solamente una pequeña parte está activa en un momento determinado. Por este motivo, los mecanismos basados en event loops y multiplexación resultan adecuados para servidores con muchas conexiones y trabajo liviano por cliente.
