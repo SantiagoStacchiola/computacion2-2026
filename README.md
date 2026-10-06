@@ -23,11 +23,12 @@
 - `clase_12_redes_fundamentos/` - Ejercicios resueltos
 - `clase_13_sockets_tcp/` - Ejercicios resueltos
 - `clase_14_servidores_concurrentes/` - Ejercicios resueltos
-- `clase_15_/` - Ejercicios resueltos
-- `clase_16_/` - Ejercicios resueltos
-- `clase_17_/` - Ejercicios resueltos
-- `clase_18_/` - Ejercicios resueltos
-- `clase_19_/` - Ejercicios pendientes
+- `clase_15_udp/` - Ejercicios resueltos
+- `clase_16_socketserver/` - Ejercicios resueltos
+- `clase_17_io_multiplexación/` - Ejercicios resueltos
+- `clase_18_yield_a_asyncio/` - Ejercicios resueltos
+- `clase_19_http_fastapi/` - Ejercicios resueltos
+- `clase_20_asyncio_red/` - Ejercicios resueltos
 - `tp1/` - Trabajo Práctico 1
 - `tp2/` - Trabajo Práctico 2
 
@@ -52,7 +53,8 @@
 | Clase 15   | Listo  |
 | Clase 16   | Listo  |
 | Clase 17   | Listo  |
-| Clase 18   | listo  |
-| Clase 19   | Pendiente |
+| Clase 18   | Listo  |
+| Clase 19   | Listo  |
+| Clase 20   | Listo  |
 | TP1        | Listo  |
 | TP2        | Pendiente |
