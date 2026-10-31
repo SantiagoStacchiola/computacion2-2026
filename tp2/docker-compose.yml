@@ -1,0 +1,16 @@
+services:
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      CANTIDAD_WORKERS: "4"
+      PROCESOS_CPU: "2"
+      MAX_COLA: "1000"
+      GRACIA_APAGADO: "10"
+      CARPETA_VOLCADOS: "/app/volcados"
+      # Solo para medir el bloqueo CPU en un entorno local de laboratorio.
+      HABILITAR_EXPERIMENTOS: "1"
+    volumes:
+      - ./volcados:/app/volcados
+    stop_grace_period: 25s

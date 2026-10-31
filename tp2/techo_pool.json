@@ -1,0 +1,160 @@
+{
+  "fecha_utc": "2026-10-31T21:23:36.493714+00:00",
+  "plataforma_cliente": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python_cliente": "3.12.3",
+  "servidor": "http://127.0.0.1:8000",
+  "tipo_tarea": "esperar",
+  "duracion_tarea_segundos": 0.05,
+  "iteraciones": null,
+  "workers_servidor": 4,
+  "niveles": [
+    {
+      "enviadas": 100,
+      "aceptadas_202": 100,
+      "rechazadas_429": 0,
+      "otros_codigos": 0,
+      "tiempo_envio_segundos": 0.593,
+      "tiempo_total_segundos": 1.432,
+      "terminaron_todas": true,
+      "tareas_por_segundo": 69.81,
+      "latencia_estadisticas_durante_carga_max_s": 0.1051,
+      "latencia_estadisticas_durante_carga_prom_s": 0.0262,
+      "latencia_get_tareas_despues_s": 0.0056,
+      "latencia_get_estadisticas_despues_s": 0.0047
+    }
+  ]
+}
+
+{
+  "fecha_utc": "2026-10-31T21:21:56.137155+00:00",
+  "plataforma_cliente": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python_cliente": "3.12.3",
+  "servidor": "http://127.0.0.1:8000",
+  "tipo_tarea": "esperar",
+  "duracion_tarea_segundos": 0.05,
+  "iteraciones": null,
+  "workers_servidor": 4,
+  "niveles": [
+    {
+      "enviadas": 500,
+      "aceptadas_202": 500,
+      "rechazadas_429": 0,
+      "otros_codigos": 0,
+      "tiempo_envio_segundos": 2.659,
+      "tiempo_total_segundos": 6.663,
+      "terminaron_todas": true,
+      "tareas_por_segundo": 75.04,
+      "latencia_estadisticas_durante_carga_max_s": 1.0777,
+      "latencia_estadisticas_durante_carga_prom_s": 0.0613,
+      "latencia_get_tareas_despues_s": 0.016,
+      "latencia_get_estadisticas_despues_s": 0.0106
+    }
+  ]
+}
+
+{
+  "fecha_utc": "2026-10-31T21:26:27.417995+00:00",
+  "plataforma_cliente": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python_cliente": "3.12.3",
+  "servidor": "http://127.0.0.1:8000",
+  "tipo_tarea": "esperar",
+  "duracion_tarea_segundos": 0.05,
+  "iteraciones": null,
+  "workers_servidor": 4,
+  "niveles": [
+    {
+      "enviadas": 1000,
+      "aceptadas_202": 1000,
+      "rechazadas_429": 0,
+      "otros_codigos": 0,
+      "tiempo_envio_segundos": 6.777,
+      "tiempo_total_segundos": 13.15,
+      "terminaron_todas": true,
+      "tareas_por_segundo": 76.05,
+      "latencia_estadisticas_durante_carga_max_s": 2.5114,
+      "latencia_estadisticas_durante_carga_prom_s": 0.1032,
+      "latencia_get_tareas_despues_s": 0.0349,
+      "latencia_get_estadisticas_despues_s": 0.0146
+    }
+  ]
+}
+
+{
+  "fecha_utc": "2026-10-31T21:28:47.525026+00:00",
+  "plataforma_cliente": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python_cliente": "3.12.3",
+  "servidor": "http://127.0.0.1:8000",
+  "tipo_tarea": "esperar",
+  "duracion_tarea_segundos": 0.05,
+  "iteraciones": null,
+  "workers_servidor": 4,
+  "niveles": [
+    {
+      "enviadas": 2000,
+      "aceptadas_202": 1892,
+      "rechazadas_429": 108,
+      "otros_codigos": 0,
+      "tiempo_envio_segundos": 11.444,
+      "tiempo_total_segundos": 24.713,
+      "terminaron_todas": true,
+      "tareas_por_segundo": 76.56,
+      "latencia_estadisticas_durante_carga_max_s": 1.8823,
+      "latencia_estadisticas_durante_carga_prom_s": 0.078,
+      "latencia_get_tareas_despues_s": 0.024,
+      "latencia_get_estadisticas_despues_s": 0.0093
+    }
+  ]
+}
+
+{
+  "fecha_utc": "2026-10-31T21:30:12.639928+00:00",
+  "plataforma_cliente": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python_cliente": "3.12.3",
+  "servidor": "http://127.0.0.1:8000",
+  "tipo_tarea": "esperar",
+  "duracion_tarea_segundos": 0.05,
+  "iteraciones": null,
+  "workers_servidor": 4,
+  "niveles": [
+    {
+      "enviadas": 5000,
+      "aceptadas_202": 3185,
+      "rechazadas_429": 1815,
+      "otros_codigos": 0,
+      "tiempo_envio_segundos": 27.945,
+      "tiempo_total_segundos": 41.58,
+      "terminaron_todas": true,
+      "tareas_por_segundo": 76.6,
+      "latencia_estadisticas_durante_carga_max_s": 2.632,
+      "latencia_estadisticas_durante_carga_prom_s": 0.1714,
+      "latencia_get_tareas_despues_s": 0.0434,
+      "latencia_get_estadisticas_despues_s": 0.0208
+    }
+  ]
+}
+{
+  "fecha_utc": "2026-10-31T21:32:42.498985+00:00",
+  "plataforma_cliente": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python_cliente": "3.12.3",
+  "servidor": "http://127.0.0.1:8000",
+  "tipo_tarea": "esperar",
+  "duracion_tarea_segundos": 0.05,
+  "iteraciones": null,
+  "workers_servidor": 4,
+  "niveles": [
+    {
+      "enviadas": 10000,
+      "aceptadas_202": 5200,
+      "rechazadas_429": 4800,
+      "otros_codigos": 0,
+      "tiempo_envio_segundos": 53.83,
+      "tiempo_total_segundos": 67.809,
+      "terminaron_todas": true,
+      "tareas_por_segundo": 76.69,
+      "latencia_estadisticas_durante_carga_max_s": 2.2139,
+      "latencia_estadisticas_durante_carga_prom_s": 0.2525,
+      "latencia_get_tareas_despues_s": 0.0486,
+      "latencia_get_estadisticas_despues_s": 0.0247
+    }
+  ]
+}
