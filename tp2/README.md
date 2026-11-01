@@ -271,7 +271,7 @@ python benchmarks/mediciones.py --base-url http://127.0.0.1:8000
 ```
 
 El script guarda `resultados_mediciones.json`. Mi corrida está copiada en
-[`resultados_mediciones.json`](resultados_mediciones.json).
+[`mediciones_referencia.json`](mediciones_referencia.json).
 
 Para la medición 3 con cargas grandes (sección 5.3.1):
 
